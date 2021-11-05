@@ -1,33 +1,32 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile HISTSIZE=1000
 SAVEHIST=1000
-# End of lines configured by zsh-newuser-install
+
 # Locales
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export PAGER=less
+## Exercism https://exercism.org/
 export fpath=($slim_path/plugins/exercism/exercism_completion.zsh
 $fpath)
 export PATH="$PATH:/home/vincent/.local/bin"
-# Make fzf use Ripgrep
+## Make fzf use Ripgrep
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=238'
-# The following lines were added by compinstall
+
 zstyle :compinstall filename '/home/vincent/.zshrc'
 zstyle ':completion:*' menu select
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
-# Slim Zsh
+# Slim Zsh https://github.com/changs/slimzsh
 source "$HOME/.slimzsh/slim.zsh"
-
-bindkey '^[[Z' autosuggest-accept
-
-# Aliases
+## Aliases
 if [[ -f $slim_path/aliases.zsh.local ]]; then
     source $slim_path/aliases.zsh.local
 fi
+
+# Bindkey autosuggest-accept to Shift + Tab
+bindkey '^[[Z' autosuggest-accept
 
 # Nvm
 export NVM_DIR="$HOME/.nvm"
