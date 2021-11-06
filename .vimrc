@@ -55,11 +55,6 @@ set encoding=utf-8
 syntax enable
 syntax on
 
-" Cursors
-let &t_EI = "\<Esc>[2 q"
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-
 " Styling
 colorscheme onedark
 let g:onedark_hide_endofbuffer = 1
@@ -68,6 +63,12 @@ let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:indentLine_char = '⦙'
+" Cursors
+let &t_EI = "\<Esc>[2 q"
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+" Unfuck cursor on exit for Zsh prompt
+autocmd VimLeave * call system('printf "\e[5 q" > $TTY')
 
 " Vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
@@ -114,7 +115,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
 "let g:ale_lint_on_text_changed = 'never'
 
 " Autoformat
-autocmd FileType vim,tex,yml,zsh,Dockerfile,DOCKERFILE,markdown let b:autoformat_autoindent=0
+autocmd FileType vim,tex,yaml,zsh,Dockerfile,DOCKERFILE,markdown let b:autoformat_autoindent=0
 let g:formatdef_my_c_formatter = '"astyle --style=1tbs"'
 let g:formatters_c = ['my_c_formatter']
 
@@ -140,25 +141,21 @@ inoremap jk <esc>
 inoremap kj <esc>
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
-
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
 map <C-p> :GFiles<CR>
 map <C-f> :Files<CR>
-
 " Auto indent
 " ^[[25~ == F13 see
 " http://aperiodic.net/phil/archives/Geekery/term-function-keys.html
 noremap ^[[25~ :Autoformat<CR>
 inoremap ^[[25~ <esc>:Autoformat<CR>
 au BufWrite * :Autoformat
-
 " Navigate Tabs
 map <C-t><up> :tabr<CR>
 map <C-t><down> :tabl<CR>
 map <C-t><left> :tabp<CR>
 map <C-t><right> :tabn<CR>
-
 " Vimspector
 " mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
 " for normal mode - the word under the cursor
@@ -167,6 +164,3 @@ nmap <Leader>di <Plug>VimspectorBalloonEval
 xmap <Leader>di <Plug>VimspectorBalloonEval
 nmap <LocalLeader><F11> <Plug>VimspectorUpFrame
 nmap <LocalLeader><F12> <Plug>VimspectorDownFrame
-
-" Unfuck cursor on exit for Zsh prompt
-autocmd VimLeave * call system('printf "\e[5 q" > $TTY')
