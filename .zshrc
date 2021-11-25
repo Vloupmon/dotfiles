@@ -18,6 +18,9 @@ zstyle ':completion:*' menu select
 autoload -Uz compinit
 compinit
 
+# Required by colored-man-pages
+autoload -U colors && colors
+
 # Slim Zsh https://github.com/changs/slimzsh
 source "$HOME/.slimzsh/slim.zsh"
 ## Aliases
