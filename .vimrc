@@ -115,7 +115,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
 "let g:ale_lint_on_text_changed = 'never'
 
 " Autoformat
-autocmd FileType vim,tex,yaml,zsh,Dockerfile,DOCKERFILE,markdown let b:autoformat_autoindent=0
+autocmd FileType vim,tex,yaml,zsh,Dockerfile,DOCKERFILE,markdown,conf let b:autoformat_autoindent=0
 let g:formatdef_my_c_formatter = '"astyle --style=1tbs"'
 let g:formatters_c = ['my_c_formatter']
 
