@@ -118,6 +118,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
 autocmd FileType vim,tex,yaml,zsh,Dockerfile,DOCKERFILE,markdown,conf let b:autoformat_autoindent=0
 let g:formatdef_my_c_formatter = '"astyle --style=1tbs"'
 let g:formatters_c = ['my_c_formatter']
+" au BufWrite * :Autoformat
 
 " Unfuck YAML
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -150,7 +151,6 @@ map <C-f> :Files<CR>
 " http://aperiodic.net/phil/archives/Geekery/term-function-keys.html
 noremap ^[[25~ :Autoformat<CR>
 inoremap ^[[25~ <esc>:Autoformat<CR>
-au BufWrite * :Autoformat
 " Navigate Tabs
 map <C-t><up> :tabr<CR>
 map <C-t><down> :tabl<CR>
