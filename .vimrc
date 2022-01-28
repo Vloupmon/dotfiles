@@ -140,7 +140,7 @@ nnoremap Y y$
 inoremap jk <esc>
 inoremap kj <esc>
 "This unsets the "last search pattern" register by hitting return
-nnoremap <CR> :noh<CR><CR>
+nnoremap <CR> :noh<CR>
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
 map <C-p> :GFiles<CR>
