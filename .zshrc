@@ -13,13 +13,25 @@ export PATH="$PATH:/home/vincent/.local/bin"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=238'
 
+## fzf-tab conf
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
 zstyle :compinstall filename '/home/vincent/.zshrc'
 zstyle ':completion:*' menu select
-autoload -Uz compinit
-compinit
-
 # Required by colored-man-pages
 autoload -U colors && colors
+#
+autoload -Uz compinit
+compinit
 
 # Slim Zsh https://github.com/changs/slimzsh
 source "$HOME/.slimzsh/slim.zsh"
