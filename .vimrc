@@ -4,20 +4,21 @@
 call plug#begin('~/.vim/plugged')
 
 " Plugins start here
-"Plug 'dense-analysis/ale'
 Plug 'Chiel92/vim-autoformat'
-Plug 'ervandew/supertab'
-Plug 'valloric/youcompleteme'
 Plug 'SirVer/ultisnips'
 Plug 'andrewstuart/vim-kubernetes'
+Plug 'dense-analysis/ale'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'ervandew/supertab'
+Plug 'farmergreg/vim-lastplace'
 Plug 'flw-cn/vim-nerdtree-l-open-h-close'
 Plug 'guns/xterm-color-table.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'joshdick/onedark.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'lifepillar/vim-solarized8'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'preservim/nerdtree'
 Plug 'puremourning/vimspector'
@@ -28,6 +29,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tyru/caw.vim'
 Plug 'valloric/matchtagalways'
+Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'yggdroot/indentline'
@@ -105,15 +107,30 @@ let g:nerdtree_sync_cursorline = 1
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
             \exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+" Whitespace handling
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save = 1
+let g:strip_whitespace_confirm=0
+
 " Ale
-"let g:ale_linters = { 'cs': ['OmniSharp'] }
-"let g:ale_linters = {
-"            \'yml': ['yamllint'],
-"            \}
-"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-"let g:ale_sign_error = '✘'
-"let g:ale_sign_warning = '⚠'
-"let g:ale_lint_on_text_changed = 'never'
+let g:ale_linters = { 'cs': ['OmniSharp'] }
+let g:ale_linters = {
+           \'yml': ['yamllint'],
+           \}
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_text_changed = 'never'
+
+" Make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" Better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Autoformat
 autocmd FileType vim,tex,yaml,zsh,Dockerfile,DOCKERFILE,markdown,conf let b:autoformat_autoindent=0
@@ -126,16 +143,6 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Spellcheck Markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
-
-" Make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" Better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " KEYBINDS
 nnoremap Y y$
