@@ -55,6 +55,7 @@ set noswapfile
 set number norelativenumber
 set termguicolors
 set encoding=utf-8
+set conceallevel=0
 syntax enable
 syntax on
 
