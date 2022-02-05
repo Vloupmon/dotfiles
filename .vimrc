@@ -133,10 +133,7 @@ let g:strip_whitespace_on_save = 1
 let g:strip_whitespace_confirm=0
 
 " Ale
-let g:ale_linters = { 'cs': ['OmniSharp'] }
-let g:ale_linters = {
-           \'yml': ['yamllint'],
-           \}
+let g:ale_linters = { 'cs': ['OmniSharp'], 'yml': ['yamllint'] }
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
