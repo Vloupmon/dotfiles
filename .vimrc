@@ -1,9 +1,12 @@
+set nocompatible
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
 " Plugins start here
+Plug 'sheerun/vim-polyglot'
 Plug 'Chiel92/vim-autoformat'
 Plug 'SirVer/ultisnips'
 Plug 'andrewstuart/vim-kubernetes'
@@ -17,7 +20,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'lifepillar/vim-solarized8'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'preservim/nerdtree'
