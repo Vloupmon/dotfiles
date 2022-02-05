@@ -81,7 +81,7 @@ z4h source ~/.zsh/kubectl-completion.zsh
 # z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
 z4h source wfxr/forgit/forgit.plugin.zsh
 z4h source fzf-fasd.plugin.zsh
-z4h load   ohmyzsh/ohmyzsh/plugins/git
+# z4h load   ohmyzsh/ohmyzsh/plugins/git
 z4h load   ohmyzsh/ohmyzsh/plugins/debian
 z4h load   ohmyzsh/ohmyzsh/plugins/nvm
 z4h load   ohmyzsh/ohmyzsh/plugins/kubectl

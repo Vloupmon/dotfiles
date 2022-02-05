@@ -1,11 +1,22 @@
 set nocompatible
 
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
-" Plugins start here
+"" ----------------------------------------
+""  Plugin
+"" ----------------------------------------
+let s:vimdir   = has('nvim') ? '~/.config/nvim/' : '~/.vim/'
+let s:plugdir  = s:vimdir . 'plugged'
+let s:plugfile = s:vimdir . 'autoload/plug.vim'
+let s:plugurl  = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+if empty(glob(s:plugfile))
+  silent execute '!mkdir -p ' . s:vimdir . 'autoload'
+  if executable('curl')
+    silent execute '!curl -sLo ' . s:plugfile ' ' . s:plugurl
+  else
+    silent !echo 'vim-plug failed: you need curl to install' | cquit
+  endif
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin(s:plugdir)
 Plug 'sheerun/vim-polyglot'
 Plug 'Chiel92/vim-autoformat'
 Plug 'SirVer/ultisnips'
@@ -23,7 +34,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'preservim/nerdtree'
-Plug 'puremourning/vimspector'
 Plug 'rrethy/vim-illuminate'
 Plug 'shougo/context_filetype.vim'
 Plug 'sickill/vim-pasta'
@@ -35,29 +45,39 @@ Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'yggdroot/indentline'
-
-" Initialize plugin system
+Plug 'ap/vim-css-color'
 call plug#end()
 
-:" General
+" General
+filetype plugin indent on
 set autoindent
+set autoread
+set backspace=indent,eol,start
+set belloff=all
 set colorcolumn=80
-set tw=80
-set shiftwidth=4
-set tabstop=4
+set conceallevel=0
+set encoding=utf-8
 set expandtab
 set foldlevel=2
 set foldmethod=syntax
 set foldnestmax=10
-set hlsearch
+set hlsearch incsearch
 set ignorecase
-set incsearch
+set lazyredraw
 set nofoldenable
 set noswapfile
 set number norelativenumber
+set ruler showcmd
+set shiftwidth=4
+set signcolumn=yes
+set tabstop=4
 set termguicolors
-set encoding=utf-8
-set conceallevel=0
+set ttyfast
+set tw=80
+set whichwrap=b,s,h,l,<,>,[,]
+set wildmenu
+sy on
+
 syntax enable
 syntax on
 
@@ -75,9 +95,6 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 " Unfuck cursor on exit for Zsh prompt
 autocmd VimLeave * call system('printf "\e[5 q" > $TTY')
-
-" Vimspector
-let g:vimspector_enable_mappings = 'HUMAN'
 
 " fzf
 let FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
@@ -167,11 +184,3 @@ map <C-t><up> :tabr<CR>
 map <C-t><down> :tabl<CR>
 map <C-t><left> :tabp<CR>
 map <C-t><right> :tabn<CR>
-" Vimspector
-" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
-" for normal mode - the word under the cursor
-nmap <Leader>di <Plug>VimspectorBalloonEval
-" for visual mode, the visually selected text
-xmap <Leader>di <Plug>VimspectorBalloonEval
-nmap <LocalLeader><F11> <Plug>VimspectorUpFrame
-nmap <LocalLeader><F12> <Plug>VimspectorDownFrame
