@@ -54,6 +54,7 @@ zstyle ':z4h:ssh-agent:' start yes
 # up-to-date. Cloned files can be used after `z4h init`. This is just an
 # example. If you don't plan to use Oh My Zsh, delete this line.
 z4h install ohmyzsh/ohmyzsh || return
+z4h install wfxr/forgit || return
 
 # Install or update core components (fzf, zsh-autosuggestions, etc.) and
 # initialize Zsh. After this point console I/O is unavailable until Zsh
@@ -71,14 +72,13 @@ export GPG_TTY=$TTY
 z4h source ~/.zsh/env-vars.zsh
 z4h source ~/.zsh/aliases.zsh
 z4h source ~/.zsh/functions.zsh
-z4h source ~/.zsh/fzf-tab-settings.zsh
 z4h source ~/.zsh/kubectl-completion.zsh
 
 # Use additional Git repositories pulled in with `z4h install`.
 #
 # This is just an example that you should delete. It does nothing useful.
 # z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
-z4h load   ohmyzsh/ohmyzsh/plugins/git
+z4h source wfxr/forgit/forgit.plugin.zsh
 z4h load   ohmyzsh/ohmyzsh/plugins/debian
 z4h load   ohmyzsh/ohmyzsh/plugins/nvm
 z4h load   ohmyzsh/ohmyzsh/plugins/kubectl
