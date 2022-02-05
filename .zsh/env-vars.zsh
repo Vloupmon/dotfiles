@@ -8,6 +8,8 @@ $fpath)
 export PATH="$PATH:/home/vincent/.local/bin"
 ## Make fzf use Ripgrep
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-## Set zsh-autosuggest color, made to be used with the onehalf colour scheme
+## Set zsh-autosuggest color, made to be used with the OneHalf Dark colour scheme
 ## https://github.com/sonph/onehalf
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=238'
+# Bat theme
+export BAT_THEME="OneHalfDark"

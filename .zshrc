@@ -55,6 +55,7 @@ zstyle ':z4h:ssh-agent:' start yes
 # example. If you don't plan to use Oh My Zsh, delete this line.
 z4h install ohmyzsh/ohmyzsh || return
 z4h install wfxr/forgit || return
+z4h install wookayin/fzf-fasd || return
 
 # Install or update core components (fzf, zsh-autosuggestions, etc.) and
 # initialize Zsh. After this point console I/O is unavailable until Zsh
@@ -79,6 +80,8 @@ z4h source ~/.zsh/kubectl-completion.zsh
 # This is just an example that you should delete. It does nothing useful.
 # z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
 z4h source wfxr/forgit/forgit.plugin.zsh
+z4h source fzf-fasd.plugin.zsh
+z4h load   ohmyzsh/ohmyzsh/plugins/git
 z4h load   ohmyzsh/ohmyzsh/plugins/debian
 z4h load   ohmyzsh/ohmyzsh/plugins/nvm
 z4h load   ohmyzsh/ohmyzsh/plugins/kubectl
