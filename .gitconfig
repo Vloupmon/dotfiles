@@ -1,0 +1,29 @@
+[user]
+    name = Vincent Loupmon
+    email = 6957532+Vloupmon@users.noreply.github.com
+
+[color]
+    ui = true
+
+[core]
+    editor = vi
+    pager = delta
+    autocrlf = input
+
+[credential]
+    helper = store
+
+[pull]
+    rebase = false
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
