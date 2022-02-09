@@ -56,7 +56,11 @@ zstyle ':z4h:ssh-agent:' start yes
 z4h install ohmyzsh/ohmyzsh || return
 z4h install wfxr/forgit || return
 z4h install wookayin/fzf-fasd || return
+z4h install greymd/docker-zsh-completion || return
+z4h install unixorn/docker-helpers.zshplugin || return
 
+z4h source ~/.zsh/_kubectx.zsh
+z4h source ~/.zsh/_kubens.zsh
 # Install or update core components (fzf, zsh-autosuggestions, etc.) and
 # initialize Zsh. After this point console I/O is unavailable until Zsh
 # is fully initialized. Everything that requires user interaction or can
@@ -80,7 +84,9 @@ z4h source ~/.zsh/kubectl-completion.zsh
 # This is just an example that you should delete. It does nothing useful.
 # z4h source ohmyzsh/ohmyzsh/lib/diagnostics.zsh  # source an individual file
 z4h source wfxr/forgit/forgit.plugin.zsh
-z4h source fzf-fasd.plugin.zsh
+z4h source wookayin/fzf-fasd/fzf-fasd.plugin.zsh
+z4h source greymd/docker-zsh-completion/docker-completion.plugin.zsh
+z4h source unixorn/docker-helpers.zshplugin/docker-helpers.plugin.zsh
 # z4h load   ohmyzsh/ohmyzsh/plugins/git
 z4h load   ohmyzsh/ohmyzsh/plugins/debian
 z4h load   ohmyzsh/ohmyzsh/plugins/nvm

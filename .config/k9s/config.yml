@@ -14,8 +14,8 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: gke_sturdy-scene-293618_europe-west1-b_test-cluster
-  currentCluster: gke_sturdy-scene-293618_europe-west1-b_test-cluster
+  currentContext: minikube
+  currentCluster: minikube
   clusters:
     gke_sturdy-scene-293618_europe-west1-b_cluster-test:
       namespace:
@@ -43,7 +43,25 @@ k9s:
         - all
         - default
       view:
-        active: ctx
+        active: popeye
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    minikube:
+      namespace:
+        active: default
+        favorites:
+        - default
+      view:
+        active: sa
       featureGates:
         nodeShell: false
       shellPod:

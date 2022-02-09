@@ -133,11 +133,20 @@ let g:strip_whitespace_on_save = 1
 let g:strip_whitespace_confirm=0
 
 " Ale
-let g:ale_linters = { 'cs': ['OmniSharp'], 'yml': ['yamllint'] }
+let g:ale_linters = { 'yml': ['yamllint'] }
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
-let g:ale_lint_on_text_changed = 'never'
+let g:airline#extensions#ale#enabled = 1
+
+" Autoformat
+autocmd FileType vim,tex,yaml,zsh,Dockerfile,markdown,conf let b:autoformat_autoindent=0
+let g:formatdef_my_c_formatter = '"astyle --style=1tbs"'
+let g:formatters_c = ['my_c_formatter']
+" au BufWrite * :Autoformat
+
+" Unfuck YAML
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -148,15 +157,6 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-" Autoformat
-autocmd FileType vim,tex,yaml,zsh,Dockerfile,DOCKERFILE,markdown,conf let b:autoformat_autoindent=0
-let g:formatdef_my_c_formatter = '"astyle --style=1tbs"'
-let g:formatters_c = ['my_c_formatter']
-" au BufWrite * :Autoformat
-
-" Unfuck YAML
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Spellcheck Markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
