@@ -25,7 +25,7 @@
 .ssh/google_compute_engine
 .ssh/id_rsa
 .ssh/environment-
-.ssh/*known_hosts
+.ssh/*known_hosts*
 .terminfo/
 .theme_history
 .tldr/
