@@ -1,3 +1,8 @@
+# Start genie
+if [[ ! -v INSIDE_GENIE ]]; then
+  genie -s
+fi
+
 # Personal Zsh configuration file. It is strongly recommended to keep all
 # shell customization and configuration (including exported environment
 # variables such as PATH) in this file or in files sourced from it.
@@ -87,11 +92,15 @@ z4h source wfxr/forgit/forgit.plugin.zsh
 z4h source wookayin/fzf-fasd/fzf-fasd.plugin.zsh
 z4h source greymd/docker-zsh-completion/docker-completion.plugin.zsh
 z4h source unixorn/docker-helpers.zshplugin/docker-helpers.plugin.zsh
+z4h source littleq0903/gcloud-zsh-completion/blob/master/src/_gcloud
+
 # z4h load   ohmyzsh/ohmyzsh/plugins/git
 z4h load   ohmyzsh/ohmyzsh/plugins/debian
 z4h load   ohmyzsh/ohmyzsh/plugins/nvm
 z4h load   ohmyzsh/ohmyzsh/plugins/kubectl
 z4h load   ohmyzsh/ohmyzsh/plugins/pip
+z4h load   ohmyzsh/ohmyzsh/plugins/ansible
+z4h load   ohmyzsh/ohmyzsh/plugins/terraform
 
 # Use fasd
 if command -v fasd >/dev/null 2>&1; then
