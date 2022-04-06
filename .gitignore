@@ -24,6 +24,7 @@
 .sqlsecrets/
 .ssh/google_compute_engine
 .ssh/id_rsa
+.ssh/oracle-vm*
 .ssh/environment-
 .ssh/*known_hosts*
 .terminfo/
@@ -40,4 +41,6 @@ container.training/
 exercism/
 go/
 projects/
-
+.sudo_as_admin_successful
+.systemd-env
+.terraform.d/
