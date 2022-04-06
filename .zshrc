@@ -59,8 +59,6 @@ z4h install wookayin/fzf-fasd || return
 z4h install greymd/docker-zsh-completion || return
 z4h install unixorn/docker-helpers.zshplugin || return
 
-z4h source ~/.zsh/_kubectx.zsh
-z4h source ~/.zsh/_kubens.zsh
 # Install or update core components (fzf, zsh-autosuggestions, etc.) and
 # initialize Zsh. After this point console I/O is unavailable until Zsh
 # is fully initialized. Everything that requires user interaction or can
@@ -92,7 +90,7 @@ z4h source littleq0903/gcloud-zsh-completion/blob/master/src/_gcloud
 # z4h load   ohmyzsh/ohmyzsh/plugins/git
 z4h load   ohmyzsh/ohmyzsh/plugins/debian
 z4h load   ohmyzsh/ohmyzsh/plugins/nvm
-z4h load   ohmyzsh/ohmyzsh/plugins/kubectl
+#z4h load   ohmyzsh/ohmyzsh/plugins/kubectl
 z4h load   ohmyzsh/ohmyzsh/plugins/pip
 z4h load   ohmyzsh/ohmyzsh/plugins/ansible
 z4h load   ohmyzsh/ohmyzsh/plugins/terraform
