@@ -6,7 +6,7 @@
 .ccache/
 .config/gcloud/
 .config/TabNine/
-.config/k9s/
+.config/k9s/config.yml
 .docker/
 .fasd
 .gnupg/
